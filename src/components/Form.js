@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+
 import  { useState } from "react";
-import Panel from "./Panel";
 
 
 function Form({newLocation}) {
@@ -17,7 +15,6 @@ function Form({newLocation}) {
 
     }
 
-const lupa = <FontAwesomeIcon icon={faMagnifyingGlass}/>
 
   return (
     <div className="mx-auto">
@@ -35,7 +32,7 @@ const lupa = <FontAwesomeIcon icon={faMagnifyingGlass}/>
               className="border border-gray-200 py-1 px-2 rounded-lg w-full"
               onChange={(e)=>setCity(e.target.value)}
             />
-           <button className="ml-5 w-40 h-10 rounded-lg bg-slate-700 cursor-pointer ">{lupa}</button>
+           <button className="ml-5 w-40 h-10 rounded-lg bg-slate-700 cursor-pointer ">lupa</button>
           </div>
         </div>
       </form>

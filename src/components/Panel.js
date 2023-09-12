@@ -3,12 +3,12 @@ import Form from "./Form"
 
 function Panel() {
   let urlNow =
-    "https://api.openweathermap.org/data/2.5/weather?&appid=9e57d62be476f11da70f&lang=es";
+    "https://api.openweathermap.org/data/2.5/weather?&appid=9e57d62be476f11da70f2f1e0bea070c&lang=es";
 
   let urlCity = "&q=";
 
   let urlDay =
-    "https://api.openweathermap.org/data/2.5/forecast?&appid=9e57d62be476f11da70f&lang=es";
+   "https://api.openweathermap.org/data/2.5/forecast?&appid=9e57d62be476f11da70f2f1e0bea070c&lang=es";
 
   const [now, setNow] = useState({});
   const [day, setDay] = useState({});
