@@ -1,12 +1,19 @@
 import Spiner from "./Spiner";
 
 function Card({ loadingData, showData, now, day }) {
+  let toDay = new Date();
+  let dia = toDay.getDate();
+  let month = toDay.getMonth() + 1;
+  let year = toDay.getFullYear();
+  let date = dia + "/" + month + "/" + year;
 
-let toDay = new Date();
-let dia = toDay.getDate();
-let month = toDay.getMonth() + 1;
-let year = toDay.getFullYear();
-let date = dia + "/" + month + "/" + year;
+  let url = "";
+  let iconUrl = "";
+
+  if (showData) {
+    url = "http://openweathermap.org/img/w/";
+    iconUrl = url + now.weather[0].icon + ".png";
+  }
 
   if (loadingData) {
     return <Spiner />;
@@ -16,12 +23,22 @@ let date = dia + "/" + month + "/" + year;
     <div className="mt-5">
       {showData === true ? (
         <div className="container-md mx-auto items-center">
-          <div className="card mb-3 mx-auto bg-dark text-white">
+          <div className="card mb-3 mx-auto bg-dark text-white items-center text-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 m-20  gap-0">
               <div className="bg-emerald-600 rounded-l-md">
                 <h2 className="card-title">{now.name}</h2>
                 <h3 className="card-date">{date}</h3>
-                <img className="object-cover" src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+                <p className="card-icon flex items-center">
+                  <img className="img-icon" src={iconUrl} />
+                  {now.weather[0].description}
+                </p>
+                <h1 className="card-temp">
+                  {(now.main.temp - 273.15).toFixed(1)}°C
+                </h1>
+                <img
+                  className="object-cover"
+                  src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                />
               </div>
 
               <div className="bg-emerald-300 text-black rounded-r-md">
