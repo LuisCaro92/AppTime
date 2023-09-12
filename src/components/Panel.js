@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Form from "./Form"
+import Form from "./Form";
+import Card from "./Card";
 
 function Panel() {
   let urlNow =
@@ -8,7 +9,7 @@ function Panel() {
   let urlCity = "&q=";
 
   let urlDay =
-   "https://api.openweathermap.org/data/2.5/forecast?&appid=9e57d62be476f11da70f2f1e0bea070c&lang=es";
+    "https://api.openweathermap.org/data/2.5/forecast?&appid=9e57d62be476f11da70f2f1e0bea070c&lang=es";
 
   const [now, setNow] = useState({});
   const [day, setDay] = useState({});
@@ -63,15 +64,16 @@ function Panel() {
   };
 
   return (
-    
-      <React.Fragment>
-      <Form
-         newLocation = {getLocation}
-      
+    <React.Fragment>
+      <Form newLocation={getLocation} />
+
+      <Card 
+        showData = {show}
+        loadingData = {loading}
+        now = {now}
+        day = {day}
       />
-      </React.Fragment>
-   
-  
+    </React.Fragment>
   );
 }
 
